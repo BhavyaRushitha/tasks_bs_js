@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: aliceblue;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      .error {
+        color: red;
+        margin-bottom: 16px;
+      }
+
+      input[type="button"] {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 20px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <span id="nameError" class="error"></span>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <span id="emailError" class="error"></span>
+
+      <label for="website">Website:</label>
+      <input type="url" id="website" name="website" required />
+      <span id="websiteError" class="error"></span>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <span id="messageError" class="error"></span>
+
+      <input type="button" value="Submit" onclick="validateForm()" />
+    </form>
+
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var website = document.getElementById("website").value;
+        var message = document.getElementById("message").value;
+
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var websiteError = document.getElementById("websiteError");
+        var messageError = document.getElementById("messageError");
+
+        nameError.innerHTML =
+          emailError.innerHTML =
+          websiteError.innerHTML =
+          messageError.innerHTML =
+            "";
+
+        if (name === "") {
+          nameError.innerHTML = "Name is required";
+        }
+
+        if (email === "") {
+          emailError.innerHTML = "Email is required";
+        }
+
+        if (website === "") {
+          websiteError.innerHTML = "Website is required";
+        }
+
+        if (message === "") {
+          messageError.innerHTML = "Message is required";
+        }
+      }
+    </script>
+  </body>
+</html>

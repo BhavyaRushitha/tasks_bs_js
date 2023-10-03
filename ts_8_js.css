@@ -1,0 +1,7 @@
+th {
+  width: 150px;
+}
+.bg-container {
+  background-image: linear-gradient(to bottom, #ffffcc, #e93aaf93);
+  padding: 40px;
+}
